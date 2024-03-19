@@ -1,7 +1,8 @@
-import express, { Application } from "express";
-import { router } from "./routes/router";
-import cors from "cors";
 import dotenv from "dotenv";
+
+import express, { Application } from "express";
+import cors from "cors";
+import { router } from "./routes/router";
 
 // Config
 dotenv.config();
@@ -12,6 +13,6 @@ const port: number = 3000;
 app.use(cors());
 app.use(express.json());
 // Routes
-app.use('/', router);
+app.use("/", router);
 
 app.listen(port, () => console.log(`Server http://localhost:${port}`));

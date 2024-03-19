@@ -1,16 +1,15 @@
-import mysql, {PoolConnection, Pool,RowDataPacket} from "mysql2/promise";
 import { Request, Response } from "express";
-import {saveNewUser} from "../models/user.model";
+import { saveNewUser } from "../models/user.model";
 
-export default async function registerController(req: Request, res: Response):Promise<void> {
-  const {email, username, password} = req.body;
+export default async function registerController(req: Request, res: Response): Promise<void> {
+  const { email, username, password } = req.body;
 
-  try{
-    // save new user 
-    await saveNewUser(email,username,password); 
-    res.status(201).json({status: "success", message: "User registration done"});
-  }catch(error){
+  try {
+    // save new user
+    await saveNewUser(email, username, password);
+    res.status(201).json({ status: "success", message: "User registration done" });
+  } catch (error) {
     console.error("Something went wrong", error);
-    res.status(500).json({message: "Internal Server Error"});
+    res.status(500).json({ message: "Internal Server Error" });
   }
 }
