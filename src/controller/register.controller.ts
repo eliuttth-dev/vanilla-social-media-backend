@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { saveNewUser } from "../models/user.model";
+import sendMail from "../services/emailService";
 
 export default async function registerController(req: Request, res: Response): Promise<void> {
   const { email, username, password } = req.body;
@@ -7,6 +8,10 @@ export default async function registerController(req: Request, res: Response): P
   try {
     // save new user
     await saveNewUser(email, username, password);
+
+    // Send confirmation mail
+    sendMail(email, "Mail Confirmation Test", "Working correctly");
+
     res.status(201).json({ status: "success", message: "User registration done" });
   } catch (error) {
     res.status(500).json({ message: "Internal Server Error" });
