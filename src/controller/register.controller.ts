@@ -9,7 +9,6 @@ export default async function registerController(req: Request, res: Response): P
     await saveNewUser(email, username, password);
     res.status(201).json({ status: "success", message: "User registration done" });
   } catch (error) {
-    console.error("Something went wrong", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 }

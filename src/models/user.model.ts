@@ -18,7 +18,6 @@ export async function saveNewUser(email: string, username: string, password: str
 
     await connection.query(query, values);
   } catch (error) {
-    console.error("Error saving new user:", error);
     throw new Error("Error saving new user");
   } finally {
     connection.release();

@@ -15,4 +15,5 @@ app.use(express.json());
 // Routes
 app.use("/", router);
 
+// eslint-disable-next-line no-console
 app.listen(port, () => console.log(`Server http://localhost:${port}`));

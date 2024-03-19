@@ -62,7 +62,6 @@ export default async function registerMiddleware(req: Request, res: Response, ne
     // Save new user
     next();
   } catch (error) {
-    console.log("Something went wrong", error);
     res.status(400).json({ status: "error", message: (error as Error).message });
   } finally {
     connection.release();
