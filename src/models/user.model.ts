@@ -1,10 +1,10 @@
-import mysql from "mysql2/promise";
+import mysql, { Pool,PoolConnection } from "mysql2/promise";
 import crypto from "node:crypto";
 import {dbConfig} from "../config/dbConfig";
 
 export async function saveNewUser(email:string, username:string, password:string): Promise<void>{
-  const pool: mysql.Pool= mysql.createPool(dbConfig);
-  const connection= await pool.getConnection();
+  const pool: Pool= mysql.createPool(dbConfig);
+  const connection: PoolConnection = await pool.getConnection();
 
   const salt:string = crypto.randomBytes(16).toString("hex");
   const hashedPassword:string = crypto.createHash("sha256").update(password + salt).digest("hex");
