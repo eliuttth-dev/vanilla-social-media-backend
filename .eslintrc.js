@@ -4,7 +4,7 @@ module.exports = {
   extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
   rules: {
     // Indentation
-    indent: ["error", 2],
+    "indent": ["error", 2],
     "no-mixed-spaces-and-tabs": "error",
 
     // Variables
@@ -16,10 +16,10 @@ module.exports = {
     "arrow-spacing": ["error", { before: true, after: true }],
 
     // String
-    quotes: ["warn", "double"],
+    "quotes": ["warn", "double"],
 
     // Control Flow
-    curly: "error",
+    "curly": "error",
     "no-else-return": "error",
 
     // ES6 Features
@@ -27,12 +27,12 @@ module.exports = {
     "prefer-template": "warn",
 
     // Errors and Code Quality
-    "no-console": "off",
+    "no-console": "error",
     "no-alert": "error",
     "no-debugger": "error",
 
     // Spacing and Formating
-    semi: ["warn", "always"],
+    "semi": ["warn", "always"],
     "comma-spacing": "error",
     "brace-style": ["error", "1tbs"],
 
