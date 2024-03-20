@@ -1,4 +1,3 @@
-- Improve email verification after register a new usevr
 - Improve SQL Data queries files and folders
 - Add login controller, middleware and route
 
