@@ -3,7 +3,7 @@ import nodemailer from "nodemailer";
 
 dotenv.config();
 
-export default async function sendEmail(recipient: string, subject: string, text: string): Promise<void> {
+export default async function sendEmail(recipient: string, subject: string, text: string, verificationToken:string): Promise<void> {
   try {
     // Create transpoter using gmail smtp server
     const transporter = nodemailer.createTransport({
@@ -22,6 +22,7 @@ export default async function sendEmail(recipient: string, subject: string, text
       html: `
         <h1>New Confimation Mail</h1>
         <p>${text}</p>
+        <a href="http://localhost:3000/verify?token=${verificationToken}" target="_blank">Click here to verify your account</a>
       `,
     });
 
