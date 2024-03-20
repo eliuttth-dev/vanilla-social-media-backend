@@ -24,18 +24,17 @@ export async function saveNewUser(email: string, username: string, password: str
   }
 }
 
-export async function updateVerifiedStatus(email:string):Promise<void>{
+export async function updateVerifiedStatus(email: string): Promise<void> {
   const pool: Pool = mysql.createPool(dbConfig);
   const connection: PoolConnection = await pool.getConnection();
 
-  try{
-    const query:string = "UPDATE users SET account_verification = 'VERIFIED' WHERE email = ?";
-    const values:string[] = [email];
-    await connection.query(query,values); 
-  }catch(error){
+  try {
+    const query: string = "UPDATE users SET account_verification = 'VERIFIED' WHERE email = ?";
+    const values: string[] = [email];
+    await connection.query(query, values);
+  } catch (error) {
     throw new Error("Error updating verified status:");
-  }finally{
+  } finally {
     connection.release();
   }
-
 }

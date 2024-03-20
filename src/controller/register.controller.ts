@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { saveNewUser } from "../models/user.model";
 import sendMail from "../services/emailService";
-import accountVerification from "./accountVerification.controller";
 import { generateVerificationToken } from "../utils/tokenUtils";
 
 export default async function registerController(req: Request, res: Response): Promise<void> {
@@ -11,7 +10,7 @@ export default async function registerController(req: Request, res: Response): P
     await saveNewUser(email, username, password);
 
     // Generate verification token
-    const verificationToken:string = generateVerificationToken(email, username);
+    const verificationToken: string = generateVerificationToken(email, username);
 
     // Send confirmation mail
     sendMail(email, "Mail Confirmation Test", "Working correctly", verificationToken);

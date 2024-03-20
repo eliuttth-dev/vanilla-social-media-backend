@@ -3,7 +3,7 @@ import nodemailer from "nodemailer";
 
 dotenv.config();
 
-export default async function sendEmail(recipient: string, subject: string, text: string, verificationToken:string): Promise<void> {
+export default async function sendEmail(recipient: string, subject: string, text: string, verificationToken: string): Promise<void> {
   try {
     // Create transpoter using gmail smtp server
     const transporter = nodemailer.createTransport({
