@@ -7,7 +7,7 @@ export default async function accountVerificationController(req: Request, res: R
 
   // Check if token is missing
   if (!token) {
-    return res.status(400).json({ status: "error", error: "Token is missing" });
+    res.status(400).json({ status: "error", error: "Token is missing" });
   }
 
   try {
@@ -31,6 +31,6 @@ export default async function accountVerificationController(req: Request, res: R
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error("Error verifying token:", error);
-    return res.status(401).json({ status: "error", error: "Invalid or expired token" });
+    res.status(401).json({ status: "error", error: "Invalid or expired token" });
   }
 }

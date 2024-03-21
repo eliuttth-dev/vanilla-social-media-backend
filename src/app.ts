@@ -7,7 +7,7 @@ import { router } from "./routes/router";
 // Config
 dotenv.config();
 const app: Application = express();
-const port: number = process.env.PORT;
+const port= process.env.PORT ? process.env.PORT : 3000;
 
 
 // Middleware
