@@ -1,6 +1,6 @@
 import crypto from "node:crypto";
 import mysql, { Pool, PoolConnection, RowDataPacket } from "mysql2/promise";
-import jwt, { JwtPayload } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import { dbConfig } from "../config/dbConfig";
 
 // Save new user
@@ -80,8 +80,7 @@ export async function loginUser(email: string, username: string, password: strin
         username: result[0].username,
       };
 
-      const token= process.env.JWT_SECRET && jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "30d" });
-
+      const token = process.env.JWT_SECRET && jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "30d" });
 
       const hashedPassword: string = crypto
         .createHash("sha256")
