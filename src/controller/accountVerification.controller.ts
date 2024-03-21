@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import jwt, { JwtPayload } from "jsonwebtoken";
 import { updateVerifiedStatus } from "../models/user.model";
 
-export default async function accountVerificationController(req: Request, res: Response) {
+export default async function accountVerificationController(req: Request, res: Response): Promise<void> {
   const token = req.query.token as string;
 
   // Check if token is missing

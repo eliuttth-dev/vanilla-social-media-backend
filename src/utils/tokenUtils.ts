@@ -1,7 +1,7 @@
 // Verification token util
 import jwt, { JwtPayload } from "jsonwebtoken";
 
-const JWT_SECRET = process.env.JWT_SECRET || "secret";
+const JWT_SECRET = process.env.JWT_SECRET && process.env.JWT_SECRET;
 
 export function generateVerificationToken(email: string, username: string): string {
   return jwt.sign({ email, username }, JWT_SECRET, { expiresIn: "24h" });

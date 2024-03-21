@@ -14,4 +14,3 @@ CREATE TABLE IF NOT EXISTS  users(
 
 SELECT * FROM users;
 
-drop table users;
