@@ -58,7 +58,7 @@ export default async function loginMiddleware(req: Request, res: Response, next:
     next();
   } catch (error) {
     console.error("Something went wrong. Loggin Middleware:", error);
-    res.status(401).json({ status: "error", message: "Wrong Credentials. Please try again!"});
+    res.status(401).json({ status: "error", message: "Wrong Credentials. Please try again!" });
   } finally {
     connection.release();
   }
