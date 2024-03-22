@@ -9,5 +9,8 @@
   Hashing Passwords ✅
   Rate Limiting ✅   
   Input validation to prevent SQL injections ✅
-  Change user model for loginUser function
+  Change user model for loginUser function ✅
 
+- User Model:
+  Modify userSearch to allow all data from database ⏱️
+  Create a controller to search user (GET);  

@@ -43,13 +43,13 @@ export async function updateVerifiedStatus(email: string): Promise<void> {
 
 //Search user by email or username
 
-export async function searchUser(email: string, username: string): Promise<RowDataPacket> {
+export async function searchUser(email: string): Promise<RowDataPacket> {
   const pool: Pool = mysql.createPool(dbConfig);
   const connection: PoolConnection = await pool.getConnection();
 
   try {
-    const query: string = "SELECT email, username, account_verification FROM users WHERE email = ? OR username = ?";
-    const values: string[] = [email, username];
+    const query: string = "SELECT email, username, profile_image, bio, links, account_verification, created_at FROM users WHERE email = ?";
+    const values: string[] = [email];
     const [result] = await connection.query<RowDataPacket[]>(query, values);
 
     if (result[0]) {
@@ -64,7 +64,7 @@ export async function searchUser(email: string, username: string): Promise<RowDa
 }
 
 // Login user
-export async function loginUser(email: string, username: string, password: string): Promise<string | undefined> {
+export async function loginUser(email: string, username: string): Promise<string | undefined> {
   const pool: Pool = mysql.createPool(dbConfig);
   const connection: PoolConnection = await pool.getConnection();
 
