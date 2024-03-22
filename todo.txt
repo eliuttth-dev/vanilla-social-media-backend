@@ -1,6 +1,13 @@
 - Improve SQL Data queries files and folders
-- Add login controller, middleware and route ⏱️:
+
+- Add login controller:
   User Model - login function ✅
   Login Controller ✅
-  Create Middleware to check input and if credentials are ok
+
+- Create Loggin Middleware to check input and if credentials are ok:
+  Parameterized queries ✅
+  Hashing Passwords ✅
+  Rate Limiting ✅   
+  Input validation to prevent SQL injections ✅
+
 
