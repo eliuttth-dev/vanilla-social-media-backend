@@ -81,21 +81,10 @@ export async function loginUser(email: string, username: string, password: strin
       };
 
       const token = process.env.JWT_SECRET && jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "30d" });
-
-      const hashedPassword: string = crypto
-        .createHash("sha256")
-        .update(password + result[0].salt)
-        .digest("hex");
-
-      if (email === result[0].email || (username === result[0].username && hashedPassword === result[0].password)) {
-        return token;
-      }
-      throw new Error("Wrong Credentials");
-    } else {
-      throw new Error("User not found");
+      return token;
     }
   } catch (error) {
-    throw new Error("Error trying to log in a user");
+    throw new Error("User not found");
   } finally {
     connection.release();
   }
