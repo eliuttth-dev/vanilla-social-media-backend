@@ -9,5 +9,5 @@
   Hashing Passwords ✅
   Rate Limiting ✅   
   Input validation to prevent SQL injections ✅
-  Change user model for loginUser function
+  Change user model for loginUser function ✅
 
