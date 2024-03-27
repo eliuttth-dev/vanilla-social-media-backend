@@ -1,3 +1,6 @@
+- Change the origins to get ORIGINS DEV/PRO ENV
+- Set specific configurations for env dev and prod
+
 - Improve SQL Data queries files and folders
 
 - Add login controller:

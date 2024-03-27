@@ -10,8 +10,14 @@ const app: Application = express();
 const port = process.env.PORT ? process.env.PORT : 3000;
 
 // Middleware
-app.use(cors());
+app.use(
+  cors({
+    exposedHeaders: ["Authorization"],
+    origin: "http://localhost:5173"
+  }),
+);
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use("/", router);
 
